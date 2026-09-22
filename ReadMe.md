@@ -1,77 +1,128 @@
 # 🏠 House Price Prediction
 
-A beginner machine learning project that predicts house prices based on property features such as size, bedrooms, bathrooms, age, distance from the city, and parking spaces.
+A beginner Machine Learning project that predicts house prices using
+property-related features and Linear Regression.
 
-This project was built as part of my machine learning learning journey.
+The project also includes a Flask web application that allows users
+to enter property details and receive a predicted house price.
 
 ---
 
 ## 📌 Project Objective
 
-The goal of this project is to understand the basic machine learning workflow for a regression problem:
+The goal of this project is to understand the complete basic Machine
+Learning workflow:
 
-- Creating a dataset
-- Exploring and understanding data
-- Visualizing relationships between features
-- Splitting data into training and testing sets
-- Training a Linear Regression model
-- Making predictions
-- Evaluating model performance
-- Saving and using a trained machine learning model
+- Data generation
+- Data exploration
+- Data visualization
+- Feature selection
+- Train/test split
+- Linear Regression
+- Model evaluation
+- Model saving
+- Prediction
+- Flask web integration
 
 ---
 
-## 🧠 Machine Learning Approach
+## 🧠 Machine Learning Model
 
-This project uses **Linear Regression** to predict house prices.
+The project uses:
 
-### Input Features
+**Linear Regression**
 
-| Feature | Description |
-|---|---|
-| `house_size_sqft` | House size in square feet |
-| `bedrooms` | Number of bedrooms |
-| `bathrooms` | Number of bathrooms |
-| `age_years` | Age of the house |
-| `distance_to_city_km` | Distance from the city in kilometers |
-| `parking_spaces` | Number of parking spaces |
+The trained model predicts house prices using six features:
+
+1. House size
+2. Number of bedrooms
+3. Number of bathrooms
+4. House age
+5. Distance to city
+6. Parking spaces
 
 ### Target
 
-`price`
-
-The target represents the generated house price.
-
----
-
-## 📊 Dataset
-
-The dataset contains **300 synthetic house records**.
-
-The data was generated using Python and NumPy for learning purposes.
-
-The house price was generated using a formula based on the input features with added random noise.
-
-Therefore, this dataset should **not** be considered real-world housing market data.
-
----
-
-## 🛠️ Technologies Used
-
-- Python
-- NumPy
-- Pandas
-- Matplotlib
-- Seaborn
-- Scikit-learn
-- Joblib
-- Jupyter Notebook
-
----
-
-## 📂 Project Structure
-
 ```text
+price
+📊 Dataset
+
+The dataset contains 300 synthetic records.
+
+The data was generated for learning purposes and does not represent
+real-world housing market data.
+
+Because the target price was generated using a formula based on the
+same input features, the model achieves a very high R² score on this
+synthetic dataset.
+
+This should not be interpreted as real-world prediction accuracy.
+
+📈 Model Evaluation
+
+The Linear Regression model was evaluated using:
+
+MAE: 125058.79
+MSE: 23867750545.69
+R² Score: 1.0
+
+These results are specific to the synthetic dataset used in this
+learning project.
+
+🌐 Web Application
+
+A Flask-based web interface is included in the project.
+
+Users can enter:
+
+House size
+Bedrooms
+Bathrooms
+House age
+Distance to city
+Parking spaces
+
+The web application sends the data to the Flask backend, which loads
+the trained Machine Learning model and returns the predicted price.
+
+Web Application Flow
+
+User Input
+    ↓
+HTML Form
+    ↓
+JavaScript
+    ↓
+Flask API
+    ↓
+Trained ML Model
+    ↓
+Prediction
+    ↓
+Web Interface
+🛠️ Technologies
+Machine Learning
+Python
+Pandas
+NumPy
+Scikit-learn
+Joblib
+Data Visualization
+Matplotlib
+Seaborn
+Web Development
+Flask
+HTML
+CSS
+JavaScript
+Tools
+VS Code
+Jupyter Notebook
+Git
+GitHub
+
+📁 Project Structure
+
 house-price-prediction/
 │
 ├── data/
@@ -81,139 +132,87 @@ house-price-prediction/
 │   └── house_price_prediction.ipynb
 │
 ├── src/
-│   ├── house_price_model.pkl
-│   └── model.py
+│   ├── model.py
+│   └── house_price_model.pkl
+│
+├── web/
+│   ├── app.py
+│   │
+│   ├── templates/
+│   │   └── index.html
+│   │
+│   └── static/
+│       ├── style.css
+│       └── script.js
 │
 ├── .gitignore
 ├── README.md
 └── requirements.txt
-🔬 Project Workflow
-Dataset Creation
-       ↓
-Data Exploration
-       ↓
-Data Visualization
-       ↓
-Correlation Analysis
-       ↓
-Train/Test Split
-       ↓
-Linear Regression
-       ↓
-Prediction
-       ↓
-Model Evaluation
-       ↓
-Save Trained Model
-       ↓
-Terminal Prediction
-📈 Model Evaluation
 
-The Linear Regression model produced the following results on the test dataset:
+⚙️ Installation
 
-Metric	Result
-MAE	125,058.79
-MSE	23,867,750,545.69
-R² Score	1.00
-Metric Explanation
+Clone the repository:
 
-MAE — Mean Absolute Error
+git clone https://github.com/aman-labx/house-price-prediction.git
 
-The average absolute difference between the actual and predicted prices.
+Move into the project directory:
 
-MSE — Mean Squared Error
-
-Measures the squared prediction error and gives greater weight to larger errors.
-
-R² Score
-
-Measures how much of the variation in the target is explained by the model.
-
-⚠️ Important Limitation
-
-The dataset used in this project is synthetic.
-
-The target price was generated using a mathematical formula based on the same features used by the model. Because of this, the model can achieve a very high R² score.
-
-Therefore, the R² = 1.00 result should not be interpreted as evidence that the model would achieve perfect performance on real-world housing data.
-
-A real-world project would require a larger and representative housing dataset, additional relevant features, and more rigorous validation.
-
-▶️ How to Run
-1. Clone the repository
-git clone <YOUR_GITHUB_REPOSITORY_URL>
-2. Open the project
 cd house-price-prediction
-3. Install dependencies
-pip install -r requirements.txt
-4. Run the prediction program
-python src/model.py
 
-The program will ask for:
+Install dependencies:
 
-House size
-Number of bedrooms
-Number of bathrooms
-House age
-Distance to city
-Parking spaces
+python -m pip install -r requirements.txt
+▶️ Run the Machine Learning Prediction Script
 
-It will then display the predicted house price.
+Run:
 
-💻 Example
-House Price Prediction
-----------------------
-Enter house size (sqft): 2000
-Enter number of bedrooms: 3
-Enter number of bathrooms: 2
-Enter house age (years): 10
-Enter distance to city (km): 5
-Enter parking spaces: 1
+python src\model.py
 
-Predicted House Price: ₹XXXXXXXX
+The program will ask for property information and return a predicted
+house price.
 
-The exact prediction depends on the trained model.
+🌐 Run the Web Application
 
-📚 What I Learned
+Start the Flask server:
 
-Through this project, I practiced:
+python web\app.py
 
-Working with Pandas DataFrames
-Creating synthetic datasets
-Data exploration
-Data visualization
-Correlation analysis
-Feature/target separation
-Train/test splitting
-Linear Regression
-Model prediction
-MAE, MSE and R²
-Saving trained models with Joblib
-Loading a trained model in another Python script
-Making predictions through the terminal
-🚀 Future Improvements
+Then open:
 
-Possible improvements for a future version:
+http://127.0.0.1:5000
+
+🔮 Future Improvements
+
+Possible improvements include:
 
 Use a real-world housing dataset
-Perform more extensive data preprocessing
-Compare multiple regression algorithms
-Perform cross-validation
-Tune model parameters
-Add more relevant housing features
-Build a web interface for predictions
-Deploy the model as a small ML application
+Compare multiple regression models
+Improve feature engineering
+Add more evaluation metrics
+Add data validation
+Deploy the Flask application
+Add interactive visualizations
+Experiment with Random Forest and other models
+📚 Learning Outcome
+
+This project helped me understand how a Machine Learning model can
+move from a dataset and notebook into a simple working application.
+
+The project is part of my ongoing Machine Learning learning journey.
+
 👨‍💻 Author
 
 Aman Machhirke
 
-1st Year College Student
-Aspiring Machine Learning Engineer
+1st Year Computer Engineering (AI & ML) Student
 
-This project is part of my journey of learning Python, data science and machine learning.
+GitHub:
+
+https://github.com/aman-labx
 
 ⚠️ Disclaimer
 
-This project is created for educational and learning purposes.
+This is a beginner educational project.
 
-The dataset is synthetic and the predicted prices should not be used for real-world property valuation or financial decisions.
+The dataset is synthetic and the model is not intended for real-world
+property valuation or financial decision-making.

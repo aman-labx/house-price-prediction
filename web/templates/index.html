@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>House Price Predictor</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+</head>
+
+<body>
+
+    <main class="page">
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <p class="eyebrow">
+                    MACHINE LEARNING PROJECT
+                </p>
+
+                <h1>
+                    House Price
+                    <span>Predictor</span>
+                </h1>
+
+                <p class="description">
+                    Enter a few property details and get an estimated
+                    house price using a trained Machine Learning model.
+                </p>
+
+            </div>
+
+            <div class="prediction-card">
+
+                <div class="card-header">
+                    <div>
+                        <p class="card-label">PROPERTY DETAILS</p>
+                        <h2>Predict a Price</h2>
+                    </div>
+
+                    <div class="model-badge">
+                        Linear Regression
+                    </div>
+                </div>
+
+                <form id="predictionForm">
+
+                    <div class="input-grid">
+
+                        <div class="input-group">
+                            <label for="house_size_sqft">
+                                House Size
+                            </label>
+
+                            <input
+                                type="number"
+                                id="house_size_sqft"
+                                placeholder="e.g. 2000"
+                                min="1"
+                                required
+                            >
+
+                            <small>Square feet</small>
+                        </div>
+
+
+                        <div class="input-group">
+                            <label for="bedrooms">
+                                Bedrooms
+                            </label>
+
+                            <input
+                                type="number"
+                                id="bedrooms"
+                                placeholder="e.g. 3"
+                                min="1"
+                                required
+                            >
+                        </div>
+
+
+                        <div class="input-group">
+                            <label for="bathrooms">
+                                Bathrooms
+                            </label>
+
+                            <input
+                                type="number"
+                                id="bathrooms"
+                                placeholder="e.g. 2"
+                                min="1"
+                                required
+                            >
+                        </div>
+
+
+                        <div class="input-group">
+                            <label for="age_years">
+                                House Age
+                            </label>
+
+                            <input
+                                type="number"
+                                id="age_years"
+                                placeholder="e.g. 10"
+                                min="0"
+                                required
+                            >
+
+                            <small>Years</small>
+                        </div>
+
+
+                        <div class="input-group">
+                            <label for="distance_to_city_km">
+                                Distance to City
+                            </label>
+
+                            <input
+                                type="number"
+                                id="distance_to_city_km"
+                                placeholder="e.g. 5"
+                                min="0"
+                                step="0.1"
+                                required
+                            >
+
+                            <small>Kilometers</small>
+                        </div>
+
+
+                        <div class="input-group">
+                            <label for="parking_spaces">
+                                Parking Spaces
+                            </label>
+
+                            <input
+                                type="number"
+                                id="parking_spaces"
+                                placeholder="e.g. 1"
+                                min="0"
+                                required
+                            >
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="predict-btn"
+                    >
+                        <span>Predict House Price</span>
+                        <span class="arrow">→</span>
+                    </button>
+
+                </form>
+
+
+                <div
+                    id="result"
+                    class="result hidden"
+                >
+
+                    <p class="result-label">
+                        ESTIMATED PRICE
+                    </p>
+
+                    <h3 id="price">
+                        ₹0
+                    </h3>
+
+                    <p>
+                        Prediction generated by the trained
+                        machine learning model.
+                    </p>
+
+                </div>
+
+
+                <div
+                    id="error"
+                    class="error hidden"
+                ></div>
+
+            </div>
+
+        </section>
+
+
+        <section class="info-section">
+
+            <div class="info-card">
+                <strong>6</strong>
+                <span>Input Features</span>
+            </div>
+
+            <div class="info-card">
+                <strong>300</strong>
+                <span>Training Records</span>
+            </div>
+
+            <div class="info-card">
+                <strong>ML</strong>
+                <span>Linear Regression</span>
+            </div>
+
+        </section>
+
+
+        <footer>
+            <p>
+                Built as part of my Machine Learning learning journey.
+            </p>
+        </footer>
+
+    </main>
+
+
+    <script
+        src="{{ url_for('static', filename='script.js') }}"
+    ></script>
+
+</body>
+</html>
